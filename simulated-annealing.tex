@@ -1,0 +1,313 @@
+% Default to the notebook output style
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass{article}
+
+    
+    
+
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+     % load all other packages
+\usepackage[12pt]{extsizes}
+\usepackage[T2A]{fontenc}
+\usepackage{amssymb,amsmath,mathtext}
+\usepackage{indentfirst,amsfonts}
+\usepackage[english, russian]{babel}
+\usepackage{setspace,amsmath}
+
+
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{simulated-annealing}
+    
+    
+    
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    
+    
+    
+
+    
+    \section{Методы стохастической
+оптимизации}\label{ux43cux435ux442ux43eux434ux44b-ux441ux442ux43eux445ux430ux441ux442ux438ux447ux435ux441ux43aux43eux439-ux43eux43fux442ux438ux43cux438ux437ux430ux446ux438ux438}
+
+    \subsection{Метод имитации отжига (simulated
+annealing)}\label{ux43cux435ux442ux43eux434-ux438ux43cux438ux442ux430ux446ux438ux438-ux43eux442ux436ux438ux433ux430-simulated-annealing}
+
+    \subsubsection{Описание}\label{ux43eux43fux438ux441ux430ux43dux438ux435}
+
+    Метод имитации отжига - это метод стохастической оптимизации,
+использующий упорядоченный случайный поиск на основе аналогии с
+процессом образования в веществе кристаллической структуры при
+охлаждении. Преимуществом метода отжига являются возможность избегать
+локальных минимумов оптимизируемой функции за счет принятия временно
+ухудшающих результат решений, что отражает суть процесса нагрева
+расплава для предотвращения его быстрого остывания. Метод отжига
+отличается от итеративных алгоритмов адаптивностью.
+
+    Метод отжига является одним из алгоритмов поиска глобального экстремума
+целевой функции \(f(x)\), заданной для \(x \in S\). Элементы множества
+\(S\), дискретного или непрерывного, представляют собой состояния
+воображаемой физической системы("энергетические уровни"). Значение
+функции \(f\) в этих точках используется как энергия системы
+\(E = f(x)\). В каждый момент времени температура системы предполагается
+заданной. Находясь в состоянии с температурой \(T\), следующее состояние
+системы выбирается в соответствии с заданным семейством вероятностных
+распределений \(Q(x, T)\), которое задает новый случайный элемент
+\(x^l = G(x, T)\). После генерации \(x^l\) система с вероятностью
+\(h(\Delta E; T)\) переходит к следующему шагу в следующее состояние
+\(x^l\). Если этот переход не произошел, процесс генерации \(x^l\)
+повторяется. Здесь \(\Delta E\) обозначает приращение функции
+\(f(x^l) - f(l)\)
+
+    Конкретная схема отжига задается следующими параметрами: * Выбором
+закона изменения температуры \(T(k)\) на шаге \(k\) * Выбором
+вероятностного распределения \(Q(x; T)\) * Выбором функции вероятности
+принятия решения \(h(\Delta E; T)\)
+
+    В общем виде алгоритм можно представить в следующем виде: 1. Случайным
+образом выбирается начальная точка \(x = x_0; x_0 \in S\). Текущее
+значение энергии \(E\) устанавливается равным \(f(x_0)\). 2. \(k\)-я
+итерация основного цикла состоит из шагов: * Сравнить энергию системы
+\(E\) в состоянии \(x\) с найденным на данный момент глобальным
+минимумом. Если \(E = f(x)\) меньше, то изменить значение глобального
+минимума. * Сгенерировать новую точку \(x^l = G(x; T(k))\). * Вычислить
+в ней значение \(E^l = f(x^l)\). * Сгенерировать случайное число
+\(\alpha \sim U[0;1]\) * Если \(\alpha < h(E^l - E; T(k))\), то: * *
+установить \(x \longrightarrow x^l; E \longrightarrow E^l\) * * Перейти
+к следующей итерации * Иначе, повторить процесс генерации
+
+    \subsubsection{Реализация
+(Python)}\label{ux440ux435ux430ux43bux438ux437ux430ux446ux438ux44f-python}
+
+    \subsubsection{Исследование}\label{ux438ux441ux441ux43bux435ux434ux43eux432ux430ux43dux438ux435}
+
+    Проверим сначала реализацию на каком-нибудь простом примере, например,
+квадратичной функции \(f(x) = 5x^2 + 6x - 4\):
+
+    
+    
+    \begin{verbatim}
+[<matplotlib.lines.Line2D at 0x7f0747a53080>]
+    \end{verbatim}
+
+    
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_16_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+Minimum found: state = -0.5957411989856904, E = -5.799909313069603
+
+    \end{Verbatim}
+
+    Аналитический минимум: \(x_{min} = -\frac{3}{5}\), \$f(x\_\{min\}) =
+-\frac{29}{5} \$, что с хорошей точностью совпадает с полученным отжигом
+результатом.
+
+    Исследуем поведение отжига на более сложной функции:
+
+    
+    
+    \begin{verbatim}
+[<matplotlib.lines.Line2D at 0x7f074753da20>]
+    \end{verbatim}
+
+    
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_20_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Переберем несколько наборов параметров: * \(T_0 = [100, 10, 1]\) *
+\(T_f = [0.01, 0.001, 0.0001, 0.00001]\) * \(\alpha = [1, 0.1, 0.01]\)
+
+    Отобразим полученные результаты на графике функции:
+
+    
+    
+    \begin{verbatim}
+[<matplotlib.lines.Line2D at 0x7f0746fdf400>]
+    \end{verbatim}
+
+    
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_25_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Посмотрим на отдельные зависимости:
+
+    
+    
+    \begin{verbatim}
+[<matplotlib.lines.Line2D at 0x7f0746c7acf8>]
+    \end{verbatim}
+
+    
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_27_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    Видно, что качество найденного решения сильно зависит от конечной
+температуры, и слабо - от начальной и коэффициента альфа(они влияют на
+время выполнения, т.к. от них зависит итоговое количество итераций).
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
