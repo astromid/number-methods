@@ -1,2 +1,12 @@
 
 \.ipynb_checkpoints/
+
+_minted-simulated-annealing/
+
+*.aux
+
+*.out
+
+simulated-annealing\.log
+
+*.gz
